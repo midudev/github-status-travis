@@ -29,7 +29,7 @@ function getCommitSha (eventType) {
 }
 
 function extractParamsFromEnv () {
-  const {env} = process.env
+  const {env} = process
   const eventType = env.TRAVIS_EVENT_TYPE
   const repoSlug = env.TRAVIS_REPO_SLUG
   const [owner, repo] = repoSlug.split('/')
@@ -52,7 +52,6 @@ const params = {
 }
 
 initGitHubStatus(params)
-
 
 console.log({params})
 
