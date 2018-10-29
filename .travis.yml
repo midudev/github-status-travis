@@ -18,8 +18,8 @@ jobs:
     - stage: Test Stage
       if: type = pull_request
       script:
-        - npm test:stage
+        - npm run test:stage
     - stage: Test Stage 2
       if: type = pull_request
       script:
-        - npm test:stage2
+        - npm run test:stage2
