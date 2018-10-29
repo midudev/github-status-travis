@@ -1,0 +1,25 @@
+dist: trusty
+
+language: node_js
+
+node_js:
+  - "10"
+
+cache:
+  directories:
+    - node_modules
+
+install:
+  - npm install
+  - npm update
+
+jobs:
+  include:
+    - stage: Test Stage
+      if: type = pull_request
+      script:
+        - npm test:stage
+    - stage: Test Stage 2
+      if: type = pull_request
+      script:
+        - npm test:stage2
