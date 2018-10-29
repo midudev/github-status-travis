@@ -47,11 +47,15 @@ function extractParamsFromArgs () {
 }
 
 initGitHubStatus({ baseUrl })
+const params = {
+  ...extractParamsFromEnv(),
+  ...extractParamsFromArgs()
+}
+
+console.log({params})
+
 octokit.repos
-  .createStatus({
-    ...extractParamsFromEnv(),
-    ...extractParamsFromArgs()
-  })
+  .createStatus(params)
   .then(() => {
     console.log('Sent status correctly')
     process.exit(0)
