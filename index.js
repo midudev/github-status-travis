@@ -1,4 +1,4 @@
-function initGitHubStatus({baseUrl = 'https://api.github.com'}) {
+function initGitHubStatus({baseUrl}) {
   const octokit = require('@octokit/rest')({
     baseUrl,
     timeout: 0, // 0 means no request timeout
@@ -46,7 +46,7 @@ function extractParamsFromArgs () {
   return require('args-parser')(process.argv)
 }
 
-initGitHubStatus({ baseUrl })
+initGitHubStatus({ baseUrl = 'https://api.github.com' })
 const params = {
   ...extractParamsFromEnv(),
   ...extractParamsFromArgs()
