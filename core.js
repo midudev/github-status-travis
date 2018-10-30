@@ -36,7 +36,7 @@ function initGitHubConnection ({ api }) {
     }
   })
 
-  octokit.authenticate({
+  return octokit.authenticate({
     type: 'oauth',
     token: process.env.GITHUB_TOKEN
   })
