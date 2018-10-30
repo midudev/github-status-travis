@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "test:stage": "./cli.js --context='stage' --description='testing' --state=failure --target_url=http://google.es"
+    "test:stage": "./cli.js --context='deploy on now' --description='testing deployment' --state=success"
   },
   "dependencies": {
     "@octokit/rest": "15.15.1",
