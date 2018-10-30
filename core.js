@@ -47,6 +47,13 @@ function initGitHubConnection ({ api }) {
 function updateGitHubStatus ({api, context, description, state, target_url}) {
   const git = initGitHubConnection({api})
 
+  console.log({
+    ...extractParamsFromEnv(),
+    context,
+    description,
+    state,
+    target_url
+  })
   git.repos.createStatus({
     ...extractParamsFromEnv(),
     context,
@@ -58,7 +65,8 @@ function updateGitHubStatus ({api, context, description, state, target_url}) {
     console.log('Sent status correctly')
     process.exit(0)
   })
-  .catch(() => {
+  .catch((e) => {
+    console.log(e)
     console.log('Error sending GitHub Status')
     process.exit(1)
   })
