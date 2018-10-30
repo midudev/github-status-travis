@@ -36,10 +36,12 @@ function initGitHubConnection ({ api }) {
     }
   })
 
-  return octokit.authenticate({
+  octokit.authenticate({
     type: 'oauth',
     token: process.env.GITHUB_TOKEN
   })
+
+  return octokit
 }
 
 function updateGitHubStatus ({api, context, description, state, target_url}) {
